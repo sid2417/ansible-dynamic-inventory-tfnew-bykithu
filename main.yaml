@@ -1,5 +1,5 @@
 - name: installing "{{ component }}" server in db.kithusdairy.fun
-  hosts: "{{ component }}"
+  hosts: all
   connection: local
   vars_files:
   - "variables-{{ env }}.yaml"
