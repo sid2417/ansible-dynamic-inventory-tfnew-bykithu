@@ -1,0 +1,10 @@
+- name: installing mysql server in db.kithusdairy.fun
+  hosts: db
+  vars_files:
+  - credentials.yaml
+  become: yes
+  roles:
+  - db
+
+
+

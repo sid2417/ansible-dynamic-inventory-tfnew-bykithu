@@ -1,0 +1,7 @@
+- name: installing backend
+  hosts: backend
+  become: yes
+  vars_files:
+  - credentials.yaml
+  roles:
+  - backend

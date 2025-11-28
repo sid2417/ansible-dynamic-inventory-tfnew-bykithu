@@ -1,0 +1,24 @@
+plugin: amazon.aws.aws_ec2 ## using this pulgin ansible is connected to aws
+regions:
+- us-east-1
+
+keyed_groups:  ## this is for groupping the addresses
+- key: tags['Name']
+  prefix: ''
+  parent_group: ''
+
+filters: ## we are targeting particular instances
+  tag:Name: "backend*"
+
+compose:
+  # This sets the `ansible_host` variable to connect with the private IP address without changing the hostname.
+  ansible_host: private_ip_address
+
+
+## ( ansible-inventory -i aws_ec2.yaml --list ) ---> Run this command you will get output in a list format with ungropped ips
+## ( ansible-inventory -i aws_ec2.yaml --graph ) ---> you will get ungroupped ips only
+## while running above command you will get error 
+## to overcome that error you iinstall ( pip3.9 install boto3 botocore )
+## ansible connect aws we required two packages ( boto3 botocore )
+## ( ansible-playbook -i aws_ec2.yaml -e ansible_user=ec2-user -e ansible_password=DevOps321 dynamic.yaml )
+
