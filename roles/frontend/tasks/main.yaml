@@ -50,7 +50,7 @@
 - name: copy the file Nginx Reverse Proxy Configuration
   ansible.builtin.template:
     src: expense.conf.j2
-    dest: /etc/nginx/default.d/expense.conf.j2
+    dest: /etc/nginx/default.d/expense.conf  #.j2
   notify:  ## this is notifying while any changes happens in configuration file 
   - restart nginx
   
